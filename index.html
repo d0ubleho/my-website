@@ -1,0 +1,78 @@
+<!doctype html> <!-- 표준 HTML 문서임을 브라우저에 알려줘요. -->
+<html lang="en"> <!-- 페이지의 기본 언어를 영어로 지정해요. -->
+<head> <!-- 탭 제목과 스타일처럼 화면에 직접 표시되지 않는 설정이에요. -->
+  <meta charset="utf-8"> <!-- 영어와 한국어를 모두 올바르게 읽을 수 있게 해요. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 모바일 화면 너비를 기준으로 페이지를 그려요. -->
+  <title>doubleho</title> <!-- 브라우저 탭에 표시할 이름이에요. -->
+  <link rel="stylesheet" href="style.css"> <!-- 같은 폴더에 있는 CSS를 불러와요. -->
+</head>
+<body> <!-- 브라우저에 표시할 내용을 담아요. -->
+  <main> <!-- 소개와 글을 페이지의 주요 내용으로 묶어요. -->
+    <div class="profile"> <!-- 소개와 경력 묶음의 끝에서 제목 고정이 풀려요. -->
+      <section class="hero" aria-labelledby="intro-title"> <!-- 첫 화면 영역이에요. 보조 기술이 아래 제목을 영역 이름으로 읽어요. -->
+        <div class="hero-content"> <!-- 제목과 소개를 한 덩어리로 묶어요. -->
+          <h1 id="intro-title">doubleho ?</h1> <!-- 첫 화면의 제목이에요. id는 위에서 이 제목을 가리킬 때 써요. -->
+          <p>Kyung Hee University · Computer Science · Interested in infrastructure</p> <!-- 학교, 전공, 관심사를 소개해요. -->
+        </div> <!-- 제목과 소개 묶음을 닫아요. -->
+      </section> <!-- 첫 화면 영역을 닫아요. -->
+      <div class="intro-space" aria-hidden="true"></div> <!-- 첫 화면의 높이와 스크롤 정렬 위치를 잡아요. -->
+      <div class="about"> <!-- 경력, 프로젝트, 수상을 한 화면 단위로 묶어요. -->
+        <section class="experience" aria-labelledby="experience-title"> <!-- 경력 영역을 열고 아래 제목과 연결해요. -->
+          <h2 id="experience-title">Experience</h2> <!-- 페이지 제목 아래 단계인 섹션 제목이에요. -->
+          <ul class="experience-list" role="list"> <!-- 경력 목록이에요. 불릿을 숨겨도 보조 기술에서 목록으로 인식하게 해요. -->
+            <li> <!-- RETURN 경력 한 행을 열어요. -->
+              <div> <!-- 이 묶음이 왼쪽 열에 들어가요. -->
+                <strong>RETURN</strong> · Member <!-- 첫 줄에는 동아리 이름과 회원 활동을 표시해요. -->
+                <p>Head of Public Relations · Sep 2026–Present</p> <!-- 홍보부장 역할과 시작 시점은 아래 줄에 표시해요. -->
+              </div> <!-- RETURN의 왼쪽 열을 닫아요. -->
+              <span class="experience-period">Mar 2023–Present</span> <!-- 오른쪽에는 RETURN 전체 활동 기간을 표시해요. -->
+            </li> <!-- RETURN 행을 닫아요. -->
+            <li> <!-- 경희대 근로 경력 한 행을 열어요. -->
+              <div><strong>Asset Management Team, Kyung Hee University</strong> · Student Worker (Materials Transport)</div> <!-- 관재팀을 앞에 쓰고 근로 업무를 표시해요. -->
+              <span class="experience-period">Nov 2026–Present</span> <!-- 오른쪽에 근로 기간을 표시해요. -->
+            </li> <!-- 근로 경력 행을 닫아요. -->
+            <li> <!-- 군 복무 경력 한 행을 열어요. -->
+              <div><strong>ROK–U.S. Combined Forces Command</strong> · CNOCC Operator</div> <!-- 왼쪽에 소속과 보직을 표시해요. -->
+              <span class="experience-period">Feb 2025–Aug 2026</span> <!-- 오른쪽에 복무 기간을 표시해요. -->
+            </li> <!-- 군 복무 경력 행을 닫아요. -->
+          </ul> <!-- 경력 목록을 닫아요. -->
+        </section> <!-- 경력 영역을 닫아요. -->
+        <section class="projects" aria-labelledby="projects-title"> <!-- 프로젝트 영역을 열고 아래 제목을 영역 이름으로 연결해요. -->
+          <h2 id="projects-title">Projects</h2> <!-- 프로젝트 섹션 제목이에요. -->
+          <ul class="project-list" role="list"> <!-- 프로젝트 목록이에요. 불릿을 숨겨도 목록으로 읽히게 해요. -->
+            <li> <!-- RCP 기여 항목을 열어요. -->
+              <strong>Return Cloud Platform (RCP)</strong> · Contributor <!-- 프로젝트 이름 옆에 기여자 역할을 표시해요. -->
+              <p>Built a VM cost savings estimator for the RCP client. <a href="https://github.com/KHU-RETURN/rcp-client/pull/40">Merged PR #40</a></p> <!-- 추가한 기능과 병합된 PR 링크를 표시해요. -->
+            </li> <!-- RCP 기여 항목을 닫아요. -->
+            <li> <!-- ClovaSet 항목을 열어요. -->
+              <strong><a href="https://github.com/haramj/ClovaSet">ClovaSet</a></strong> <!-- 굵은 프로젝트 이름을 누르면 GitHub 저장소가 열려요. -->
+              <p>Designed the cloud architecture and deployed the demo on Naver Cloud Platform.</p> <!-- 직접 맡은 작업을 한 문장으로 소개해요. -->
+            </li> <!-- ClovaSet 항목을 닫아요. -->
+            <li> <!-- 개인 홈페이지 항목을 열어요. -->
+              <strong>Personal Website</strong> <!-- 현재 보고 있는 사이트의 프로젝트 이름이에요. -->
+              <p>Built and deployed this site on Return Cloud Platform.</p> <!-- 홈페이지를 만들고 배포한 플랫폼을 적어요. -->
+            </li> <!-- 개인 홈페이지 항목을 닫아요. -->
+          </ul> <!-- 프로젝트 목록을 닫아요. -->
+        </section> <!-- 프로젝트 영역을 닫아요. -->
+        <section class="credentials" aria-labelledby="credentials-title"> <!-- 수상, 자격증, 시험 점수를 한 영역에 묶어요. -->
+          <h2 id="credentials-title">Awards &amp; Credentials</h2> <!-- &amp;는 화면에 & 기호로 보여요. -->
+          <ul class="credential-list" role="list"> <!-- 불릿을 숨겨도 보조 기술이 목록으로 읽게 해요. -->
+            <li><strong>2026 LIMIT:AI HACKATHON</strong> · <span lang="ko">장려상</span> (ClovaSet) · Oct 2026</li> <!-- 상 이름의 언어만 한국어로 지정해요. -->
+            <li><strong>NAVER Cloud Platform Certified Associate (NCA)</strong> · Oct 2026</li> <!-- NCA 자격증과 취득 월이에요. -->
+            <li><strong>SQL Developer (SQLD)</strong> · Jun 2026</li> <!-- SQLD 자격증과 취득 월이에요. -->
+            <li><strong>TOEIC 850</strong> · Feb 2026</li> <!-- 토익 점수와 응시 월이에요. -->
+          </ul> <!-- 수상과 자격 목록을 닫아요. -->
+        </section> <!-- 수상과 자격 영역을 닫아요. -->
+      </div> <!-- 경력 화면 묶음을 닫아요. -->
+    </div> <!-- 제목이 고정되는 영역을 닫아요. -->
+    <section class="writing" aria-labelledby="writing-title"> <!-- 글 영역을 소개 묶음 아래에 둬요. -->
+      <h2 id="writing-title">Writing</h2> <!-- 글 섹션의 제목이에요. -->
+      <p>I’ll write about what I’m learning in infrastructure, share notes from my projects, and jot down whatever’s on my mind.</p> <!-- 앞으로 쓸 글을 소개하는 문단이에요. -->
+      <article> <!-- 첫 배포 기록을 하나의 글로 묶어요. -->
+        <h3>Deploying My First Website on RCP</h3> <!-- 첫 글의 제목이에요. -->
+        <p>I set up an Ubuntu VM on Return Cloud Platform, connected over SSH, and served my first HTML page with Nginx.</p> <!-- 실제 첫 배포 과정을 한 문장으로 적어요. -->
+      </article> <!-- 첫 글을 닫아요. -->
+    </section> <!-- 글 영역을 닫아요. -->
+  </main> <!-- 페이지의 주요 내용 영역을 닫아요. -->
+</body>
+</html>
