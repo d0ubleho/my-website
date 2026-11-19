@@ -21,6 +21,9 @@ github = oauth.register(
     client_kwargs={"code_challenge_method": "S256"},
 )
 
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+app.config["SESSION_COOKIE_SECURE"] = os.environ.get("BLOG_COOKIE_SECURE") == "1"
+
 @app.get("/api/posts")
 def get_posts():
     with closing(sqlite3.connect(db_path.as_uri() + "?mode=ro", uri=True)) as connection:
@@ -70,7 +73,7 @@ def create_post():
 
 @app.get("/auth/github")
 def github_login():
-    callback_url = url_for("github_callback", _external=True)
+    callback_url = os.environ.get("GITHUB_CALLBACK_URL") or url_for("github_callback", _external=True)
     return github.authorize_redirect(callback_url)
 
 @app.get("/auth/github/callback")
