@@ -6,6 +6,26 @@
   <title>doubleho</title> <!-- 브라우저 탭에 표시할 이름이에요. -->
   <link rel="stylesheet" href="style.css"> <!-- 같은 폴더에 있는 CSS를 불러와요. -->
 </head>
+<script>
+  async function loadPosts() { // API에서 글을 받아오는 함수예요.
+    const response = await fetch("/api/posts"); // 지금 페이지와 같은 서버에 GET 요청을 보내고 응답을 기다려요.
+    if (!response.ok) throw new Error(`HTTP ${response.status}`); // 응답이 실패했다면 상태 코드를 오류로 표시해요.
+    const posts = await response.json(); // 응답 본문의 JSON을 자바스크립트 배열로 바꿔요.
+    const postList = document.querySelector("#posts");
+
+    for (const post of posts) {
+      const article = document.createElement("article");
+      const title = document.createElement("h3");
+      const body = document.createElement("p");
+      title.textContent = post.title;
+      body.textContent = post.body;
+      article.append(title, body);
+      postList.append(article);
+    }
+  }
+
+  loadPosts(); // 페이지를 열면 이 함수를 실행해요.
+</script>
 <body> <!-- 브라우저에 표시할 내용을 담아요. -->
   <main> <!-- 소개와 글을 페이지의 주요 내용으로 묶어요. -->
     <div class="profile"> <!-- 소개와 경력 묶음의 끝에서 제목 고정이 풀려요. -->
@@ -70,12 +90,8 @@
       </div> <!-- 경력 화면 묶음을 닫아요. -->
     </div> <!-- 제목이 고정되는 영역을 닫아요. -->
     <section class="writing" aria-labelledby="writing-title"> <!-- 글 영역을 소개 묶음 아래에 둬요. -->
-      <h2 id="writing-title">Writing</h2> <!-- 글 섹션의 제목이에요. -->
-      <p>I’ll write about what I’m learning in infrastructure, share notes from my projects, and jot down whatever’s on my mind.</p> <!-- 앞으로 쓸 글을 소개하는 문단이에요. -->
-      <article> <!-- 첫 배포 기록을 하나의 글로 묶어요. -->
-        <h3>Deploying My First Website on RCP</h3> <!-- 첫 글의 제목이에요. -->
-        <p>I set up an Ubuntu VM on Return Cloud Platform, connected over SSH, and served my first HTML page with Nginx.</p> <!-- 실제 첫 배포 과정을 한 문장으로 적어요. -->
-      </article> <!-- 첫 글을 닫아요. -->
+      <h2 id="writing-title">Writings</h2> <!-- 글 섹션의 제목이에요. -->
+      <div id="posts"></div>
     </section> <!-- 글 영역을 닫아요. -->
   </main> <!-- 페이지의 주요 내용 영역을 닫아요. -->
 </body>
